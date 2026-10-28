@@ -1,7 +1,8 @@
 HELP.md
 target/
 
-### (le fichier .env est inclus volontairement pour faciliter la collaboration) ###
+### Secrets — fichier local non versionné (modèle : .env.example) ###
+.env
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

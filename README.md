@@ -92,11 +92,11 @@ flowchart LR
 
 **Prérequis :** Java 17+, MySQL 8, Node.js 18+ (Maven n'est pas nécessaire grâce au wrapper `mvnw`).
 
-1. **Base de données** — démarrez MySQL. La base `banque` est créée automatiquement au premier lancement. Si vos identifiants MySQL diffèrent de `root`, renseignez-les dans `backend/digital-banking/.env` :
-   ```env
-   MYSQL_USER=votre_utilisateur
-   MYSQL_PASSWORD=votre_mot_de_passe
+1. **Base de données** — démarrez MySQL. La base `banque` est créée automatiquement au premier lancement. Créez votre configuration locale à partir du modèle, puis renseignez-y vos identifiants MySQL :
+   ```bash
+   cp backend/digital-banking/.env.example backend/digital-banking/.env
    ```
+   Le fichier `.env` n'est pas versionné. Sans lui, l'application se connecte avec l'utilisateur `root` sans mot de passe.
 2. **Backend** (port `8086`) :
    ```bash
    cd backend/digital-banking

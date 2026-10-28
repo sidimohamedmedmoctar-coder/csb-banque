@@ -15,7 +15,9 @@ dist-ssr/
 .cache/
 
 # ─── Environment & secrets ────────────────────────────────────────────────────
-# .env et .env.local inclus volontairement pour faciliter la collaboration
+# .env : identifiants locaux, jamais versionnés (modèle : backend/digital-banking/.env.example)
+# frontend/.env.local reste versionné : il ne contient que l'URL de l'API
+.env
 *.secret
 secrets/
 application-prod.properties
