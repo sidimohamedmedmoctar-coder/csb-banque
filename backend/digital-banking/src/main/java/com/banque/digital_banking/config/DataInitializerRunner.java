@@ -32,7 +32,6 @@ import java.util.UUID;
  * Ordre de démarrage Spring Boot :
  *   1. finishBeanFactoryInitialization() → @PostConstruct (données insérées ici)
  *   2. finishRefresh()                  → Tomcat démarre et accepte les requêtes
- *   3. ApplicationReadyEvent            → RagIndexingService.indexData()
  *
  * Ce bean est un @Component → exclu automatiquement des slices @DataJpaTest
  * et @WebMvcTest, ce qui garde ces contextes de test légers et déterministes.
