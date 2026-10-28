@@ -38,7 +38,7 @@ function validate(name: string, username: string, email: string, password: strin
 
 interface Props { onClose: () => void; onCreated: () => void }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function CreateUserModal({ onClose, onCreated }: Props) {
   const { user: currentUser } = useAuth();

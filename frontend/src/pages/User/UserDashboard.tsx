@@ -33,7 +33,7 @@ function formatRib(rib: string): string {
   return rib.replace(/(.{4})/g, '$1 ').trim();
 }
 
-// ── Dismissed notifications (localStorage) ───────────────────────────────────
+// ── Notifications masquées (localStorage) ────────────────────────────────────
 
 function loadDismissed(username: string): Set<number> {
   try {
@@ -46,7 +46,7 @@ function saveDismissed(username: string, ids: Set<number>) {
   localStorage.setItem(`dismissed_notifs_${username}`, JSON.stringify([...ids]));
 }
 
-// ── Copy RIB icon ─────────────────────────────────────────────────────────────
+// ── Icône copier le RIB ───────────────────────────────────────────────────────
 
 const IconCopy = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -54,7 +54,7 @@ const IconCopy = () => (
   </svg>
 );
 
-// ── Account card ──────────────────────────────────────────────────────────────
+// ── Carte de compte ───────────────────────────────────────────────────────────
 
 const AccountCard = React.memo(function AccountCard({
   account, onViewHistory,
@@ -123,7 +123,7 @@ const AccountCard = React.memo(function AccountCard({
   );
 });
 
-// ── Dashboard ─────────────────────────────────────────────────────────────────
+// ── Tableau de bord ───────────────────────────────────────────────────────────
 
 export default function UserDashboard() {
   const { user } = useAuth();
@@ -200,7 +200,7 @@ export default function UserDashboard() {
   const goToHistory = useCallback(() => navigate('/user/history'), [navigate]);
   const total = accounts.reduce((sum, a) => sum + a.balance, 0);
 
-  // ── Date helper ──────────────────────────────────────────────────────────────
+  // ── Utilitaire de date ───────────────────────────────────────────────────────
   const todayLabel = new Date().toLocaleDateString('fr-FR', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });

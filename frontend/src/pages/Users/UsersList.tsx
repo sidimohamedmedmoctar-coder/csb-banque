@@ -44,7 +44,7 @@ export default function UsersList() {
 
   useEffect(() => { fetchUsers(); }, [fetchUsers]);
 
-  // Close dropdown on outside click
+  // Ferme le menu déroulant au clic à l'extérieur
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -125,7 +125,7 @@ export default function UsersList() {
     return user.roles ?? [];
   }
 
-  // ── Filtering + pagination ─────────────────────────────────────────────────
+  // ── Filtrage + pagination ──────────────────────────────────────────────────
   const q = search.trim().toLowerCase();
   const filtered = q
     ? users.filter(

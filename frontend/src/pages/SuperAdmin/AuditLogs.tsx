@@ -5,7 +5,7 @@ import { loadAuditLogs, clearAuditLogs, AUDIT_KEY } from '@/utils/auditLogger';
 import type { AuditLevel } from '@/utils/auditLogger';
 import styles from './AuditLogs.module.css';
 
-// ── Level chip helper ─────────────────────────────────────────────────────────
+// ── Utilitaire de pastille de niveau ──────────────────────────────────────────
 
 function levelChipClass(l: AuditLevel) {
   if (l === 'WARNING') return styles.chipWarning;
@@ -13,7 +13,7 @@ function levelChipClass(l: AuditLevel) {
   return styles.chipInfo;
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function AuditLogs() {
   const [logs,        setLogs]        = useState(() => loadAuditLogs());
@@ -22,7 +22,7 @@ export default function AuditLogs() {
   const [actorFilter, setActorFilter] = useState('');
   const [dateFilter,  setDateFilter]  = useState('');
 
-  // Sync in real-time with other tabs / actions
+  // Synchronisation en temps réel avec les autres onglets / actions
   useEffect(() => {
     function onStorage(e: StorageEvent) {
       if (e.key === AUDIT_KEY) setLogs(loadAuditLogs());

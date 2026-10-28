@@ -11,12 +11,12 @@ export interface AuditEntry {
   details:   string;
 }
 
-// ── Storage key ───────────────────────────────────────────────────────────────
+// ── Clé de stockage ───────────────────────────────────────────────────────────
 
 export const AUDIT_KEY  = 'bank_audit_logs';
 const MAX_ENTRIES       = 500;   // rolling window
 
-// ── Read ──────────────────────────────────────────────────────────────────────
+// ── Lecture ───────────────────────────────────────────────────────────────────
 
 export function loadAuditLogs(): AuditEntry[] {
   try {
@@ -27,7 +27,7 @@ export function loadAuditLogs(): AuditEntry[] {
   }
 }
 
-// ── Write ─────────────────────────────────────────────────────────────────────
+// ── Écriture ──────────────────────────────────────────────────────────────────
 
 export function logAudit(entry: Omit<AuditEntry, 'id' | 'timestamp'>): void {
   try {
@@ -39,12 +39,12 @@ export function logAudit(entry: Omit<AuditEntry, 'id' | 'timestamp'>): void {
     };
     const updated = [...logs, newLog].slice(-MAX_ENTRIES);
     localStorage.setItem(AUDIT_KEY, JSON.stringify(updated));
-    // Notify other open tabs (e.g. superadmin watching the log live)
+    // Notifie les autres onglets ouverts (ex. superadmin qui regarde le journal en direct)
     window.dispatchEvent(new StorageEvent('storage', { key: AUDIT_KEY }));
   } catch { /* silencieux */ }
 }
 
-// ── Clear ─────────────────────────────────────────────────────────────────────
+// ── Effacement ────────────────────────────────────────────────────────────────
 
 export function clearAuditLogs(): void {
   localStorage.removeItem(AUDIT_KEY);

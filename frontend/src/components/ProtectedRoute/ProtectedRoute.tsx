@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 
 interface Props {
   children: ReactNode;
-  /** One role (string) or a list — user must have AT LEAST ONE of them */
+  /** Un rôle (string) ou une liste — l'utilisateur doit en posséder AU MOINS UN */
   requireRole?: string | string[];
 }
 

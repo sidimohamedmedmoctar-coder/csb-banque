@@ -41,7 +41,7 @@ function validateOp(values: OpValues): OpErrors {
   return errors;
 }
 
-// ── Shared op-form fields ─────────────────────────────────────────────────────
+// ── Champs partagés du formulaire d'opération ─────────────────────────────────
 
 interface OpFieldsProps {
   values:         OpValues;
@@ -94,7 +94,7 @@ function OpFields({
   );
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
+// ── Composant principal ───────────────────────────────────────────────────────
 
 export default function AccountDetails() {
   const { id } = useParams<{ id: string }>();
@@ -108,22 +108,22 @@ export default function AccountDetails() {
   const [notFound,  setNotFound]  = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>('DEBIT');
 
-  // ── Debit state ───────────────────────────────────────────────────────────
+  // ── État Débit ────────────────────────────────────────────────────────────
   const [debitValues,      setDebitValues]      = useState<OpValues>(EMPTY_OP);
   const [debitErrors,      setDebitErrors]      = useState<OpErrors>(EMPTY_ERR);
   const [debitSubmitting,  setDebitSubmitting]  = useState(false);
 
-  // ── Credit state ──────────────────────────────────────────────────────────
+  // ── État Crédit ───────────────────────────────────────────────────────────
   const [creditValues,     setCreditValues]     = useState<OpValues>(EMPTY_OP);
   const [creditErrors,     setCreditErrors]     = useState<OpErrors>(EMPTY_ERR);
   const [creditSubmitting, setCreditSubmitting] = useState(false);
 
-  // ── Transfer state ────────────────────────────────────────────────────────
+  // ── État Virement ─────────────────────────────────────────────────────────
   const [transValues,     setTransValues]     = useState<TransValues>(EMPTY_TRANS);
   const [transErrors,     setTransErrors]     = useState<TransErrors>(EMPTY_TRANS_ERR);
   const [transSubmitting, setTransSubmitting] = useState(false);
 
-  // ── Fetch history ─────────────────────────────────────────────────────────
+  // ── Récupération de l'historique ──────────────────────────────────────────
 
   const fetchHistory = useCallback(async () => {
     if (!id) return;
@@ -143,7 +143,7 @@ export default function AccountDetails() {
 
   useEffect(() => { fetchHistory(); }, [fetchHistory]);
 
-  // ── Submit handlers ───────────────────────────────────────────────────────
+  // ── Gestionnaires de soumission ───────────────────────────────────────────
 
   async function handleDebit(e: React.FormEvent) {
     e.preventDefault();
@@ -211,7 +211,7 @@ export default function AccountDetails() {
     }
   }
 
-  // ── Guards ────────────────────────────────────────────────────────────────
+  // ── Garde-fous ────────────────────────────────────────────────────────────
 
   if (notFound) {
     return (

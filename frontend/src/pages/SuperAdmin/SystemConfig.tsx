@@ -51,7 +51,7 @@ function validate(v: ConfigValues): ConfigErrors {
   return e;
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function SystemConfig() {
   const { user } = useAuth();

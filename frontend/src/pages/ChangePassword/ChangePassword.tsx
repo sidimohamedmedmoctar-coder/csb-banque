@@ -16,7 +16,7 @@ function validate(old: string, next: string, confirm: string) {
   return errors;
 }
 
-// ── Eye icon ──────────────────────────────────────────────────────────────────
+// ── Icône œil ─────────────────────────────────────────────────────────────────
 
 function EyeIcon({ show }: { show: boolean }) {
   return show ? (
@@ -33,7 +33,7 @@ function EyeIcon({ show }: { show: boolean }) {
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function ChangePassword() {
   const navigate = useNavigate();

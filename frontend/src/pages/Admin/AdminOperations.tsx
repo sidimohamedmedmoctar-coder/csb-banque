@@ -16,7 +16,7 @@ interface EnrichedOperation extends AccountOperationDTO {
 
 const PAGE_SIZE = 15;
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function AdminOperations() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function AdminOperations() {
   const [dateFilter,   setDateFilter]   = useState('');
   const [page, setPage] = useState(0);
 
-  // ── Load data ───────────────────────────────────────────────────────────────
+  // ── Chargement des données ──────────────────────────────────────────────────
 
   useEffect(() => {
     let cancelled = false;
@@ -75,7 +75,7 @@ export default function AdminOperations() {
     return () => { cancelled = true; };
   }, []);
 
-  // ── Filtering ───────────────────────────────────────────────────────────────
+  // ── Filtrage ────────────────────────────────────────────────────────────────
 
   const filtered = useMemo(() => {
     return operations.filter((op) => {

@@ -14,13 +14,13 @@ import styles from './BankStatement.module.css';
 
 interface ClientInfo { name: string; email: string }
 
-// ── RIB formatter ─────────────────────────────────────────────────────────────
+// ── Formatage du RIB ──────────────────────────────────────────────────────────
 
 function formatRib(rib: string): string {
   return rib.replace(/(.{4})/g, '$1 ').trim();
 }
 
-// ── Inline SVG icons ──────────────────────────────────────────────────────────
+// ── Icônes SVG en ligne ───────────────────────────────────────────────────────
 
 function PrintIcon() {
   return (
@@ -40,7 +40,7 @@ function BackIcon() {
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function BankStatement() {
   const { user } = useAuth();

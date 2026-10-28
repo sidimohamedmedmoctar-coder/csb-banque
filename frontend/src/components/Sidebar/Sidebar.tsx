@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import styles from './Sidebar.module.css';
 
-// ── SVG Icons ─────────────────────────────────────────────────────────────────
+// ── Icônes SVG ────────────────────────────────────────────────────────────────
 
 const icons: Record<string, JSX.Element> = {
   dashboard: (
@@ -84,7 +84,7 @@ const icons: Record<string, JSX.Element> = {
   ),
 };
 
-// ── Navigation items ──────────────────────────────────────────────────────────
+// ── Éléments de navigation ────────────────────────────────────────────────────
 
 const USER_NAV = [
   { to: '/user/dashboard',     label: 'Tableau de bord', icon: 'dashboard'     },
@@ -112,7 +112,7 @@ const SUPERADMIN_NAV = [
   { to: '/superadmin/config',    label: 'Configuration',    icon: 'config'     },
 ];
 
-// ── Section labels ────────────────────────────────────────────────────────────
+// ── Libellés de section ───────────────────────────────────────────────────────
 
 const SECTION_LABELS: Record<string, string> = {
   user:       'ESPACE CLIENT',
@@ -120,7 +120,7 @@ const SECTION_LABELS: Record<string, string> = {
   superadmin: 'SUPER ADMIN',
 };
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function Sidebar() {
   const { hasRole, user } = useAuth();

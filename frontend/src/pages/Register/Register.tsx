@@ -77,7 +77,7 @@ const IconEyeOff = () => (
   </svg>
 );
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function Register() {
   const { addRegistration } = useRegistrations();

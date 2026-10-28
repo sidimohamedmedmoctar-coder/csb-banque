@@ -9,7 +9,7 @@ import { useAuth }  from '@/hooks/useAuth';
 import Spinner      from '@/components/Spinner/Spinner';
 import styles from './Beneficiaries.module.css';
 
-// ── Beneficiary card ──────────────────────────────────────────────────────────
+// ── Carte de bénéficiaire ─────────────────────────────────────────────────────
 
 const BeneficiaryCard = React.memo(function BeneficiaryCard({
   b, onRemove, onTransfer,
@@ -53,13 +53,13 @@ const BeneficiaryCard = React.memo(function BeneficiaryCard({
   );
 });
 
-// ── Form state ────────────────────────────────────────────────────────────────
+// ── État du formulaire ────────────────────────────────────────────────────────
 
 interface FormValues { name: string; rib: string; }
 interface FormErrors { name?: string; rib?: string; }
 const EMPTY: FormValues = { name: '', rib: '' };
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function Beneficiaries() {
   const { user }   = useAuth();
@@ -73,7 +73,7 @@ export default function Beneficiaries() {
   const [ribChecking, setRibChecking] = useState(false);
   const [ribAccount,  setRibAccount]  = useState<BankAccount | null | undefined>(undefined);
 
-  // RIB debounce lookup
+  // Recherche du RIB avec anti-rebond (debounce)
   useEffect(() => {
     const rib = values.rib.trim().replace(/\s/g, '');
     if (rib.length < 24) { setRibAccount(undefined); return; }

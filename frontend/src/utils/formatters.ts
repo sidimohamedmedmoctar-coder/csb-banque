@@ -1,4 +1,4 @@
-// ── Currency ─────────────────────────────────────────────────────────────────
+// ── Devise ───────────────────────────────────────────────────────────────────
 
 export function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('fr-MA', {
@@ -8,7 +8,7 @@ export function formatCurrency(amount: number): string {
   }).format(amount);
 }
 
-// ── Dates (native Intl, no external library) ─────────────────────────────────
+// ── Dates (Intl natif, sans librairie externe) ───────────────────────────────
 
 export function formatDate(iso: string): string {
   return new Intl.DateTimeFormat('fr-FR', {

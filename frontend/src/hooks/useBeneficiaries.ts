@@ -8,7 +8,7 @@ export interface Beneficiary {
   rib:  string;   // RIB du compte bénéficiaire (24 chiffres)
 }
 
-// ── localStorage helpers ──────────────────────────────────────────────────────
+// ── Utilitaires localStorage ──────────────────────────────────────────────────
 
 function storageKey(username: string) {
   return `bank_beneficiaries_${username}`;
@@ -24,7 +24,7 @@ function loadBeneficiaries(username: string): Beneficiary[] {
   }
 }
 
-// ── Custom hook (TP5) ─────────────────────────────────────────────────────────
+// ── Hook personnalisé (TP5) ───────────────────────────────────────────────────
 
 /**
  * useBeneficiaries — gestion des bénéficiaires par utilisateur.

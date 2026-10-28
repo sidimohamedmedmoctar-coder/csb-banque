@@ -16,7 +16,7 @@ import styles from './AdminApprovals.module.css';
 type ReqType = 'RELEVE' | 'VERSEMENT';
 type TabId   = 'requests' | 'registrations';
 
-// ── Status chip helpers ───────────────────────────────────────────────────────
+// ── Utilitaires de pastille de statut ─────────────────────────────────────────
 
 function reqStatusClass(s: RequestStatus) {
   if (s === 'APPROUVÉE') return styles.chipSuccess;
@@ -30,7 +30,7 @@ function regStatusClass(s: RegistrationStatus) {
   return styles.chipPending;
 }
 
-// ── Action buttons (React.memo) ───────────────────────────────────────────────
+// ── Boutons d'action (React.memo) ─────────────────────────────────────────────
 
 const ActionButtons = React.memo(function ActionButtons({
   id, status, onApprove, onReject,
@@ -74,7 +74,7 @@ const RegistrationActions = React.memo(function RegistrationActions({
   );
 });
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function AdminApprovals() {
   const { pendingRegistrations, approveRegistration, rejectRegistration } = useRegistrations();

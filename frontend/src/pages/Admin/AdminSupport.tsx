@@ -7,7 +7,7 @@ import { logAudit }      from '@/utils/auditLogger';
 import type { TicketStatus } from '@/hooks/useTickets';
 import styles from './AdminSupport.module.css';
 
-// ── Status helpers ────────────────────────────────────────────────────────────
+// ── Utilitaires de statut ─────────────────────────────────────────────────────
 
 function statusClass(s: TicketStatus) {
   if (s === 'RÉSOLU')   return styles.chipResolved;
@@ -21,7 +21,7 @@ function ticketBorderClass(s: TicketStatus) {
   return styles.ticketOpen;
 }
 
-// ── Ticket card (React.memo) ──────────────────────────────────────────────────
+// ── Carte de ticket (React.memo) ──────────────────────────────────────────────
 
 const TicketCard = React.memo(function TicketCard({
   ticket, onMarkInProgress, onRespond,
@@ -75,7 +75,7 @@ const TicketCard = React.memo(function TicketCard({
   );
 });
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function AdminSupport() {
   const { tickets, respondToTicket, markInProgress } = useAllTickets();

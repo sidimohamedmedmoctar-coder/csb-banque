@@ -8,7 +8,7 @@ export interface SystemConfig {
   creditMaxAmount:  number;   // montant maximum d'un versement (MAD)
 }
 
-// ── Storage key ───────────────────────────────────────────────────────────────
+// ── Clé de stockage ───────────────────────────────────────────────────────────
 
 export const CONFIG_KEY = 'bank_system_config';
 
@@ -20,23 +20,23 @@ export const DEFAULT_CONFIG: SystemConfig = {
   creditMaxAmount:  1000000,
 };
 
-// ── Read ──────────────────────────────────────────────────────────────────────
+// ── Lecture ───────────────────────────────────────────────────────────────────
 
 export function loadSystemConfig(): SystemConfig {
   try {
     const raw = localStorage.getItem(CONFIG_KEY);
     if (!raw) return { ...DEFAULT_CONFIG };
-    // Merge with defaults so missing keys stay valid
+    // Fusionne avec les valeurs par défaut pour que les clés manquantes restent valides
     return { ...DEFAULT_CONFIG, ...(JSON.parse(raw) as Partial<SystemConfig>) };
   } catch {
     return { ...DEFAULT_CONFIG };
   }
 }
 
-// ── Write ─────────────────────────────────────────────────────────────────────
+// ── Écriture ──────────────────────────────────────────────────────────────────
 
 export function saveSystemConfig(config: SystemConfig): void {
   localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
-  // Notify other open tabs so they pick up the new limits immediately
+  // Notifie les autres onglets pour qu'ils prennent en compte les nouvelles limites immédiatement
   window.dispatchEvent(new StorageEvent('storage', { key: CONFIG_KEY }));
 }

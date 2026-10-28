@@ -1,6 +1,6 @@
 import type { AuthUser } from '@/types/auth';
 
-// ── State ────────────────────────────────────────────────────────────────────
+// ── État ─────────────────────────────────────────────────────────────────────
 
 export interface AuthState {
   user: AuthUser | null;

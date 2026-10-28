@@ -25,11 +25,11 @@ interface RegistrationContextValue {
   rejectRegistration:   (id: number) => void;
 }
 
-// ── localStorage key ──────────────────────────────────────────────────────────
+// ── Clé localStorage ──────────────────────────────────────────────────────────
 
 const STORAGE_KEY = 'bank_registrations';
 
-// ── Seed data (uniquement si localStorage vide) ───────────────────────────────
+// ── Données initiales (uniquement si localStorage vide) ───────────────────────
 
 const SEED: PendingRegistration[] = [
   {
@@ -64,11 +64,11 @@ function loadFromStorage(): PendingRegistration[] {
   return SEED;
 }
 
-// ── Context ───────────────────────────────────────────────────────────────────
+// ── Contexte ──────────────────────────────────────────────────────────────────
 
 const RegistrationContext = createContext<RegistrationContextValue | null>(null);
 
-// ── Provider ──────────────────────────────────────────────────────────────────
+// ── Fournisseur ───────────────────────────────────────────────────────────────
 
 export function RegistrationProvider({ children }: { children: ReactNode }) {
   const [registrations, setRegistrations] = useState<PendingRegistration[]>(loadFromStorage);
@@ -184,7 +184,7 @@ export function RegistrationProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// ── Custom hook (TP2) ─────────────────────────────────────────────────────────
+// ── Hook personnalisé (TP2) ───────────────────────────────────────────────────
 
 export function useRegistrations(): RegistrationContextValue {
   const ctx = useContext(RegistrationContext);

@@ -11,7 +11,7 @@ import { formatCurrency } from '@/utils/formatters';
 import { useAllRequests } from '@/hooks/useRequests';
 import styles from './Dashboard.module.css';
 
-// ── Date helper ───────────────────────────────────────────────────────────────
+// ── Utilitaire de date ────────────────────────────────────────────────────────
 
 function todayLabel(): string {
   return new Date().toLocaleDateString('fr-FR', {
@@ -19,7 +19,7 @@ function todayLabel(): string {
   });
 }
 
-// ── KPI Card ──────────────────────────────────────────────────────────────────
+// ── Carte KPI ─────────────────────────────────────────────────────────────────
 
 function KpiCard({ icon, label, value, sub, gradient, iconBg }: {
   icon: string;
@@ -42,7 +42,7 @@ function KpiCard({ icon, label, value, sub, gradient, iconBg }: {
   );
 }
 
-// ── Status badge ──────────────────────────────────────────────────────────────
+// ── Badge de statut ───────────────────────────────────────────────────────────
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { label: string; cls: string }> = {
@@ -54,7 +54,7 @@ function StatusBadge({ status }: { status: string }) {
   return <span className={`${styles.statusBadge} ${s.cls}`}>{s.label}</span>;
 }
 
-// ── Quick action button ───────────────────────────────────────────────────────
+// ── Bouton d'action rapide ────────────────────────────────────────────────────
 
 function ActionBtn({ icon, label, onClick, accent, alert }: {
   icon: string; label: string; onClick: () => void;
@@ -73,7 +73,7 @@ function ActionBtn({ icon, label, onClick, accent, alert }: {
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
   const { user } = useAuth();

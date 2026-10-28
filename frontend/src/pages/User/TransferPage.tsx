@@ -31,7 +31,7 @@ interface FormErrors {
   description?:    string;
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function TransferPage() {
   const { user } = useAuth();
@@ -65,7 +65,7 @@ export default function TransferPage() {
   const [success,      setSuccess]      = useState(false);
   const [serverError,  setServerError]  = useState('');
 
-  // Load user accounts
+  // Chargement des comptes de l'utilisateur
   useEffect(() => {
     let cancelled = false;
     if (!username) return;
@@ -87,7 +87,7 @@ export default function TransferPage() {
     return () => { cancelled = true; };
   }, [username]);
 
-  // RIB debounce lookup
+  // Recherche du RIB avec anti-rebond (debounce)
   useEffect(() => {
     const rib = values.ribDestination.trim().replace(/\s/g, '');
     if (rib.length < 24) { setRibAccount(undefined); return; }

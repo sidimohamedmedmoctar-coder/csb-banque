@@ -24,7 +24,7 @@ function validatePwd(v: PwdValues): PwdErrors {
 
 const EMPTY_PWD: PwdValues = { current: '', next: '', confirm: '' };
 
-// ── Eye icon ──────────────────────────────────────────────────────────────────
+// ── Icône œil ─────────────────────────────────────────────────────────────────
 
 function EyeIcon({ show }: { show: boolean }) {
   if (show) return (
@@ -42,7 +42,7 @@ function EyeIcon({ show }: { show: boolean }) {
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function UserProfile() {
   const { user } = useAuth();
@@ -53,7 +53,7 @@ export default function UserProfile() {
   const [pwdSuccess, setPwdSuccess] = useState(false);
   const [serverErr,  setServerErr]  = useState('');
 
-  // Show/hide toggles
+  // Bascules afficher/masquer
   const [showCurrent, setShowCurrent] = useState(false);
   const [showNext,    setShowNext]    = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);

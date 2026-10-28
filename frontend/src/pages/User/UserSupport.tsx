@@ -51,7 +51,7 @@ function ticketBorderClass(s: TicketStatus) {
 
 const EMPTY: FormValues = { subject: '', message: '' };
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function UserSupport() {
   const { user }   = useAuth();
@@ -65,7 +65,7 @@ export default function UserSupport() {
   const [success,    setSuccess]    = useState(false);
   const [clientName, setClientName] = useState(username);
 
-  // Get full client name for admin display
+  // Récupère le nom complet du client pour l'affichage admin
   useEffect(() => {
     let cancelled = false;
     if (!username) return;

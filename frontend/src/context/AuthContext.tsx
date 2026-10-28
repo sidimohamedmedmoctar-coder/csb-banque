@@ -14,7 +14,7 @@ import { logAudit } from '@/utils/auditLogger';
 
 const TOKEN_KEY = 'access_token';
 
-// ── Context shape ────────────────────────────────────────────────────────────
+// ── Forme du contexte ────────────────────────────────────────────────────────
 
 interface AuthContextValue {
   user: AuthUser | null;
@@ -26,9 +26,9 @@ interface AuthContextValue {
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
 
-// ── JWT helpers ──────────────────────────────────────────────────────────────
+// ── Utilitaires JWT ──────────────────────────────────────────────────────────
 
-/** Decode a JWT payload without any external library (TP5 : atob / base64) */
+/** Décode le payload d'un JWT sans librairie externe (TP5 : atob / base64) */
 function decodeJwt<T>(token: string): T {
   const base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
   return JSON.parse(atob(base64)) as T;
@@ -48,14 +48,14 @@ function buildUser(token: string): AuthUser | null {
   }
 }
 
-// ── Provider ─────────────────────────────────────────────────────────────────
+// ── Fournisseur ──────────────────────────────────────────────────────────────
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
   /**
-   * useLayoutEffect (TP2) : restore the session synchronously before the
-   * first DOM paint so that ProtectedRoute never flashes the login page.
+   * useLayoutEffect (TP2) : restaure la session de façon synchrone avant le
+   * premier rendu DOM afin que ProtectedRoute n'affiche jamais brièvement la page de login.
    */
   useLayoutEffect(() => {
     const token = sessionStorage.getItem(TOKEN_KEY);

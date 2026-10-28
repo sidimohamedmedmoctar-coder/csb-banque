@@ -32,7 +32,7 @@ interface VersErrors   { accountId?: string; amount?: string }
 const EMPTY_RELEVE: ReleveValues = { description: '' };
 const EMPTY_VERS:   VersValues   = { accountId: '', amount: '', description: '' };
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function OnlineRequests() {
   const { user }   = useAuth();
@@ -53,7 +53,7 @@ export default function OnlineRequests() {
   const [userAccounts, setUserAccounts] = useState<BankAccount[]>([]);
   const [loadingAccs,  setLoadingAccs]  = useState(false);
 
-  // Load accounts for versement form
+  // Chargement des comptes pour le formulaire de versement
   useEffect(() => {
     let cancelled = false;
     if (!username) return;
@@ -94,7 +94,7 @@ export default function OnlineRequests() {
     setTab('history');
   }, [releveValues, addRequest]);
 
-  // ── Versement handlers ────────────────────────────────────────────────────────
+  // ── Gestionnaires de versement ────────────────────────────────────────────────
 
   const handleVersChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

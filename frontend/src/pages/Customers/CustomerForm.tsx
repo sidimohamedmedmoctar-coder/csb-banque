@@ -15,7 +15,7 @@ function validate(name: string, email: string) {
   return errors;
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+// ── Composant ─────────────────────────────────────────────────────────────────
 
 export default function CustomerForm() {
   const { id }   = useParams<{ id: string }>();

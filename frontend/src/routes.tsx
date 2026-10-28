@@ -6,10 +6,10 @@ import Register       from '@/pages/Register/Register';
 import Unauthorized   from '@/pages/Unauthorized/Unauthorized';
 import NotFound       from '@/pages/NotFound/NotFound';
 
-// ── Shared pages ───────────────────────────────────────────────────────────────
+// ── Pages partagées ────────────────────────────────────────────────────────────
 import ChangePassword from '@/pages/ChangePassword/ChangePassword';
 
-// ── USER pages ────────────────────────────────────────────────────────────────
+// ── Pages UTILISATEUR ─────────────────────────────────────────────────────────
 import UserDashboard      from '@/pages/User/UserDashboard';
 import TransferPage       from '@/pages/User/TransferPage';
 import TransactionHistory from '@/pages/User/TransactionHistory';
@@ -19,7 +19,7 @@ import OnlineRequests     from '@/pages/User/OnlineRequests';
 import UserSupport        from '@/pages/User/UserSupport';
 import UserProfile        from '@/pages/User/UserProfile';
 
-// ── ADMIN pages ───────────────────────────────────────────────────────────────
+// ── Pages ADMIN ───────────────────────────────────────────────────────────────
 import Dashboard        from '@/pages/Dashboard/Dashboard';
 import CustomersList    from '@/pages/Customers/CustomersList';
 import CustomerForm     from '@/pages/Customers/CustomerForm';
@@ -30,12 +30,12 @@ import AdminApprovals   from '@/pages/Admin/AdminApprovals';
 import AdminSupport     from '@/pages/Admin/AdminSupport';
 import AdminOperations  from '@/pages/Admin/AdminOperations';
 
-// ── SUPER_ADMIN pages ─────────────────────────────────────────────────────────
+// ── Pages SUPER_ADMIN ─────────────────────────────────────────────────────────
 import Users        from '@/pages/Users/UsersList';
 import AuditLogs    from '@/pages/SuperAdmin/AuditLogs';
 import SystemConfig from '@/pages/SuperAdmin/SystemConfig';
 
-// ── Route tree ────────────────────────────────────────────────────────────────
+// ── Arbre des routes ──────────────────────────────────────────────────────────
 
 export default function AppRoutes() {
   return (
